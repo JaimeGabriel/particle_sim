@@ -9,6 +9,7 @@ WHITE = (255, 255, 255)
 RED = (200, 0, 0)
 BLUE = (0, 0, 200)
 BLACK = (0, 0, 0)
+GREEN = (0, 200, 0)
 
 
 pygame.init()
@@ -18,9 +19,12 @@ clock = pygame.time.Clock() # For controlling the fps
 screen = pygame.display.set_mode((width, height))
 
 n = 3
-particle_0 = Particle(300, width/2, height/2, 0, 0, WHITE, 20)
-particle_1 = Particle(5, width/2 - 1 * width / 3, height/2 + 100, 0, 1, RED, 10)
-particle_2 = Particle(20, width/2 + 1 * width / 3, height/2 + 1*height/3, 1, -1, BLUE, 10)
+particle_0 = Particle(30, 700, 100, 1, 0.5, WHITE)
+particle_1 = Particle(55, 300, 300, 0, 1, RED)
+particle_2 = Particle(300, 100, 700, 0, -1, BLUE)
+#particle_3 = Particle(150, 260, 600, 1, 3, GREEN)
+
+
 
 particles_vector = []
 for i in range(n):
@@ -50,20 +54,6 @@ while run:
             if particle1 != particle2:
                 particle1.update_velocity(clock.get_fps(), particle2)
         
-
-    """ particle_0.draw_particle(screen)
-    particle_1.draw_particle(screen)
-    particle_2.draw_particle(screen)
-
-    #particle_a.update_position()
-    particle_1.update_position()
-
-    particle_0.update_velocity(clock.get_fps(), particle_1)
-    particle_1.update_velocity(clock.get_fps(), particle_0)
-    
-    particle_1.draw_trail(screen)
-     """
-
 
     # Update screen
     pygame.display.flip()

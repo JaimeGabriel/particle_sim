@@ -1,18 +1,21 @@
 import pygame
 import numpy as np
 from globals import *
+from collections import deque
 
 
 class Particle:
-    def __init__ (self, mass, x_position, y_position, x_velocity, y_velocity, color, radio):
+    def __init__ (self, mass, x_position, y_position, x_velocity, y_velocity, color):
         self.mass = mass
         self.x_position = x_position
         self.y_position = y_position
         self.x_velocity = x_velocity
         self.y_velocity = y_velocity
         self.color = color
-        self.radio = radio
+        self.radio = self.mass / 10
         self.trail = []
+        #self.trail = deque(maxlen=1000)  # Crear un deque con una longitud máxima de 100 elementos
+
     
     def draw_particle(self, screen):
         pygame.draw.circle(screen, self.color, (self.x_position, self.y_position), self.radio)
@@ -49,7 +52,8 @@ class Particle:
     def draw_trail(self, screen):
         self.trail.append([self.x_position, self.y_position])
         for row in self.trail:
-            pygame.draw.circle(screen, self.color, (row[0], row[1]), self.radio/10)
+            pygame.draw.circle(screen, self.color, (row[0], row[1]), 1)
+
 
 
         
