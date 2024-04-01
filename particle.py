@@ -13,8 +13,8 @@ class Particle:
         self.y_velocity = y_velocity
         self.color = color
         self.radio = self.mass / 10
-        self.trail = []
-        #self.trail = deque(maxlen=1000)  # Crear un deque con una longitud máxima de 100 elementos
+        #self.trail = []
+        self.trail = deque(maxlen=1000)  # Crear un deque con una longitud máxima de 100 elementos
 
     
     def draw_particle(self, screen):
@@ -30,12 +30,8 @@ class Particle:
         elif self.y_position >= height - self.radio or self.y_position <= self.radio:
             self.y_velocity = - self.y_velocity
 
-    def update_velocity(self, fps, other_particle):
-               
-        if fps > 0:
-            time = 1/fps
-        else:
-            time = 1/20
+    def update_velocity(self, delta_t, other_particle):
+
 
         x_distance = self.x_position - other_particle.x_position
         y_distance = self.y_position - other_particle.y_position
@@ -46,7 +42,7 @@ class Particle:
         sine = (other_particle.y_position - self.y_position) / distance
         cosine = (other_particle.x_position - self.x_position) / distance
 
-        self.x_velocity = self.x_velocity + acceleration * cosine
+        self.x_velocity = self.x_velocity + acceleration * cosine 
         self.y_velocity = self.y_velocity + acceleration * sine
             
     def draw_trail(self, screen):
