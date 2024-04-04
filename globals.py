@@ -1,4 +1,6 @@
-width, height = 1000, 900 # Number of pixels of the game window
+window_width, window_height = 1000, 900 # Number of pixels of the game window
+total_width, total_height = 3000, 3000
+game_width, game_height = window_width, window_height
 WHITE = (255, 255, 255)
 RED = (200, 0, 0)
 BLACK = (0, 0, 0)
