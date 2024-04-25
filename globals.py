@@ -1,9 +1,9 @@
 window_width, window_height = 1000, 900 # Number of pixels of the game window
-total_width, total_height = 3000, 3000
-game_width, game_height = window_width, window_height
+total_width, total_height = 3000, 3000 # Now unused
+game_width, game_height = window_width, window_height # Now unused
 WHITE = (255, 255, 255)
 RED = (200, 0, 0)
 BLACK = (0, 0, 0)
 BLUE = (0, 0, 200)
 GREEN = (0, 200, 0)
-G = 1
+G = 1 # Universal gravitational constant
